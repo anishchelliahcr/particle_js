@@ -76,7 +76,7 @@ function animate()
             smaller=window.innerWidth;
         }
         for (var j = 0; j < circlearray.length; j++)
-            if (Math.sqrt(Math.pow(circlearray[i].x - circlearray[j].x, 2) + Math.pow(circlearray[i].y - circlearray[j].y, 2)) <= Math.sqrt(Math.sqrt(larger*larger+smaller*smaller))*150 && i != j)
+            if (Math.sqrt(Math.pow(circlearray[i].x - circlearray[j].x, 2) + Math.pow(circlearray[i].y - circlearray[j].y, 2)) <= Math.sqrt(Math.sqrt(larger*larger+smaller*smaller))*120 && i != j)
             {
                 c.beginPath()
                 c.moveTo(circlearray[i].x, circlearray[i].y);
