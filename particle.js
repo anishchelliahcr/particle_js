@@ -88,7 +88,7 @@ function animate()
     {
         for(var i=0;i<tot_pts-valid_pts;i++)
         {
-            var r=window.innerHeight*window.innerWidth/600000;
+            var r=window.innerHeight*window.innerWidth/1200000;
             var x=Math.random()*(window.innerWidth-r);
             var y=Math.random()*(window.innerHeight-r);
             var dx=(Math.random()-0.5)*4;
