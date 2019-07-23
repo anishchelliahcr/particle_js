@@ -76,7 +76,7 @@ function animate()
             smaller=window.innerWidth;
         }
         for (var j = 0; j < circlearray.length; j++)
-            if (Math.sqrt(Math.pow(circlearray[i].x - circlearray[j].x, 2) + Math.pow(circlearray[i].y - circlearray[j].y, 2)) <= Math.sqrt(Math.sqrt(larger*larger+smaller*smaller)/4)*5 && i != j)
+            if (Math.sqrt(Math.pow(circlearray[i].x - circlearray[j].x, 2) + Math.pow(circlearray[i].y - circlearray[j].y, 2)) <= Math.sqrt(Math.sqrt(larger*larger+smaller*smaller)/4)*3 && i != j)
             {
                 c.beginPath()
                 c.moveTo(circlearray[i].x, circlearray[i].y);
@@ -88,7 +88,7 @@ function animate()
     {
         for(var i=0;i<tot_pts-valid_pts;i++)
         {
-            var r=window.innerHeight*window.innerWidth/1200000;
+            var r=window.innerHeight*window.innerWidth/900000;
             var x=Math.random()*(window.innerWidth-r);
             var y=Math.random()*(window.innerHeight-r);
             var dx=(Math.random()-0.5)*4;
