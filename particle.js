@@ -18,7 +18,11 @@ function Circle(x,y,r,dx,dy)
         c.beginPath();
         c.strokeStyle="black";
         c.fillStyle="white";
-        c.arc(this.x, this.y, this.r, Math.PI * 2, false);
+        // Draw a full circle. The arc API expects start and end angles in
+        // radians. The previous implementation mistakenly used `Math.PI * 2`
+        // as the start angle and `false` as the end angle which resulted in an
+        // invalid arc call. Start at angle `0` and end at `2 * Math.PI`.
+        c.arc(this.x, this.y, this.r, 0, Math.PI * 2);
         c.fill();
         c.stroke();
     }
@@ -27,9 +31,12 @@ function Circle(x,y,r,dx,dy)
     {
         this.x+=this.dx;
         this.y+=this.dy;
-        if(this.x>=window.innerWidth-r||this.x<=r)
+        // Bounce the particle when it hits the canvas boundaries. Use the
+        // particle's current radius instead of the last global `r` value so the
+        // behaviour remains correct when the radius changes.
+        if(this.x>=window.innerWidth-this.r||this.x<=this.r)
             this.dx=-this.dx;
-        if(this.y>=window.innerHeight-r||this.y<=r)
+        if(this.y>=window.innerHeight-this.r||this.y<=this.r)
             this.dy=-this.dy;
         this.draw();
     }
